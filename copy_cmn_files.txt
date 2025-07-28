@@ -1,0 +1,25 @@
+@echo off
+REM ----------------------------------------------------------------------------
+REM Script Name: copy_cmn_files.bat
+REM Description: Copies all .cmn files from the UNAVCO EarthScope dataset folder
+REM              to a subfolder named "All_cmn_file".
+REM Author: Badal Ahmmed(email:badalahmmed@gmail.com)
+REM Date: 4 Feb 2025
+ 
+REM ----------------------------------------------------------------------------
+
+REM === Define absolute or relative source and destination paths ===
+SET "SRC=earthscope_2022_2023_all_data"
+SET "DST=earthscope_2022_2023_all_data\All_cmn_file"
+
+REM === Create destination directory if it doesn't exist ===
+IF NOT EXIST "%DST%" (
+    MKDIR "%DST%"
+)
+
+REM === Copy all .cmn files ===
+XCOPY "%SRC%\*.cmn" "%DST%\" /Y
+
+REM === Confirmation message ===
+ECHO All .cmn files copied successfully!
+PAUSE

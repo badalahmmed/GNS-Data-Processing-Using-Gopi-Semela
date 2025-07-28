@@ -1,0 +1,20 @@
+@echo off
+:: Batch script to copy all .cmn files to a specific directory
+:: Author: Badal Ahmmed(email:badalahmmed@gmail.com)
+:: Date: 4 Feb 2025
+
+:: Define source and destination folders (relative or absolute)
+set "SRC=earthscope_2022_2023_all_data"
+set "DST=earthscope_2022_2023_all_data\All_cmn_file"
+
+:: Create destination folder if it doesn't exist
+if not exist "%DST%" (
+    mkdir "%DST%"
+)
+
+:: Copy all .cmn files from source to destination
+xcopy "%SRC%\*.cmn" "%DST%\" /Y
+
+:: Confirmation message
+echo All .cmn files have been copied successfully!
+pause
